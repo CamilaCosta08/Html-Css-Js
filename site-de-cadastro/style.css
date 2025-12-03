@@ -1,67 +1,101 @@
+
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
+    background: #2b001d; /* Magenta escuro */
+    font-family: Arial, sans-serif;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background-color: #fff5fa;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #ffb3e6;
 }
 
-
+/* Card central */
 .container {
-    background: white;
+    background: #4d0037; 
     width: 350px;
     padding: 35px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 0 20px #ffb3d6;
+    box-shadow: 0px 0px 25px rgba(255, 100, 200, 0.4);
+    border: 2px solid #ff1faf; 
 }
 
+/* título */
 h1 {
-    color: #ff4fa6;
+    color: #ffb3e6;
+    margin-bottom: 20px;
+    font-size: 30px;
 }
 
 input {
     width: 90%;
-    padding: 14px;
+    padding: 12px;
     margin: 10px 0;
     border-radius: 10px;
-    border: 1px solid #d8a5bd;
+    border: 2px solid #ff1faf;
+    background: #660048;
+    color: #ffe1f8;
     font-size: 16px;
 }
 
-button {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 16px;
-    background: #ff8ccd;
-    color: white;
+input::placeholder {
+    color: #ffb3e6;
 }
 
-button:hover {
-    background: #ff67c2;
-}
-
+/* lugar da senha */
 .senha-box {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 5px;
 }
 
-.senha-box input {
-    width: 75%;
+/* botão de mostrar a senha */
+.toggle {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: #cc0083;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
 }
 
-.senha-box button {
-    background: #ffe4f3;
-    color: #444;
-    margin-left: 5px;
+.toggle:hover {
+    background: #e60093;
 }
 
-.alternar {
-    background: #ffd4ec;
-    color: #333;
+/* botões principais */
+.btn {
+    background: #ff0fa1;
+    color: white;
+    padding: 12px;
+    width: 95%;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background: #ff008d;
+}
+
+/* botão secundário de cadastro etc */
+.btn-secondary {
+    background: #cc0083;
+    color: white;
+    padding: 12px;
+    width: 95%;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.btn-secondary:hover {
+    background: #e60093;
 }

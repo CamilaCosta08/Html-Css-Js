@@ -1,52 +1,51 @@
-let usuarioSalvo = "camila";
-let senhaSalva = "123";
-
-function mostrarSenha() {
-  const campo = document.getElementById("pass");
-  campo.type = campo.type === "password" ? "text" : "password";
+// mostrar ou esconder a senha
+function mostrarSenha(idCampo) {
+    const campo = document.getElementById(idCampo);
+    campo.type = campo.type === "password" ? "text" : "password";
 }
 
-function fazerLogin() {
-  const u = document.getElementById("user").value;
-  const p = document.getElementById("pass").value;
-  const msg = document.getElementById("msg");
-
-  if (u === usuarioSalvo && p === senhaSalva) {
-    msg.textContent = "";
-    mostrarTela("telaBemVindo");
-  } else {
-    msg.textContent = "Usuário ou senha incorretos.";
-  }
+// ir para página de cadastro
+function irCadastro() {
+    window.location.href = "cadastro.html";
 }
 
-function mostrarCadastro() {
-  mostrarTela("telaCadastro");
-}
-
-function cadastrar() {
-  const novoUser = document.getElementById("novoUser").value;
-  const novoPass = document.getElementById("novoPass").value;
-  const msg = document.getElementById("msgCadastro");
-
-  if (novoUser === "" || novoPass === "") {
-    msg.textContent = "Preencha tudo, minha princesa!";
-    return;
-  }
-
-  usuarioSalvo = novoUser;
-  senhaSalva = novoPass;
-
-  msg.textContent = "Conta criada! Agora volte e faça login.";
-}
-
+// voltar ao login
 function voltarLogin() {
-  mostrarTela("telaLogin");
+    window.location.href = "index.html";
 }
 
-function mostrarTela(id) {
-  document.getElementById("telaLogin").style.display = "none";
-  document.getElementById("telaCadastro").style.display = "none";
-  document.getElementById("telaBemVindo").style.display = "none";
+// cadastrar usuário 
+function cadastrar() {
+    const usuario = document.getElementById("novoUsuario").value;
+    const senha = document.getElementById("novaSenha").value;
 
-  document.getElementById(id).style.display = "block";
+    if (usuario === "" || senha === "") {
+        alert("Preencha tudo!");
+        return;
+    }
+
+    localStorage.setItem("user", usuario);
+    localStorage.setItem("pass", senha);
+
+    alert("Conta criada com sucesso!");
+    window.location.href = "index.html";
+}
+
+// fazer login
+function fazerLogin() {
+    const usuario = document.getElementById("usuarioLogin").value;
+    const senha = document.getElementById("senhaLogin").value;
+
+    const userSalvo = localStorage.getItem("user");
+    const passSalvo = localStorage.getItem("pass");
+
+    if (usuario === userSalvo && senha === passSalvo) {
+        window.location.href = "painel.html";
+    } else {
+        alert("Usuário ou senha incorretos.");
+    }
+}
+// sair
+function sair() {
+    window.location.href = "index.html";
 }
