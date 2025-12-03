@@ -1,29 +1,54 @@
+:root {
+    --bg: #ffe6f7;
+    --card: #ffffff;
+    --border: #ff69c7;
+    --text: #660033;
+    --input-bg: #fff;
+    --input-text: #660033;
+    --btn: #ff4fbf;
+    --btn-hover: #ff2fa9;
+    --secondary: #ff8add;
+    --secondary-hover: #ff79d6;
+}
+
+.dark {
+    --bg: #2b001d;
+    --card: #4d0037;
+    --border: #ff1faf;
+    --text: #ffb3e6;
+    --input-bg: #660048;
+    --input-text: #ffe1f8;
+    --btn: #ff0fa1;
+    --btn-hover: #ff008d;
+    --secondary: #cc0083;
+    --secondary-hover: #e60093;
+}
 
 body {
-    background: #2b001d; /* Magenta escuro */
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    color: #ffb3e6;
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.3s ease;
 }
 
-/* Card central */
 .container {
-    background: #4d0037; 
+    background: var(--card);
     width: 350px;
     padding: 35px;
     border-radius: 20px;
     text-align: center;
     box-shadow: 0px 0px 25px rgba(255, 100, 200, 0.4);
-    border: 2px solid #ff1faf; 
+    border: 2px solid var(--border);
+    transition: 0.3s ease;
 }
 
-/* título */
 h1 {
-    color: #ffb3e6;
+    color: var(--text);
     margin-bottom: 20px;
     font-size: 30px;
 }
@@ -33,9 +58,9 @@ input {
     padding: 12px;
     margin: 10px 0;
     border-radius: 10px;
-    border: 2px solid #ff1faf;
-    background: #660048;
-    color: #ffe1f8;
+    border: 2px solid var(--border);
+    background: var(--input-bg);
+    color: var(--input-text);
     font-size: 16px;
 }
 
@@ -43,7 +68,6 @@ input::placeholder {
     color: #ffb3e6;
 }
 
-/* lugar da senha */
 .senha-box {
     display: flex;
     justify-content: center;
@@ -51,24 +75,22 @@ input::placeholder {
     gap: 5px;
 }
 
-/* botão de mostrar a senha */
 .toggle {
     padding: 10px;
     border-radius: 10px;
     border: none;
-    background: #cc0083;
+    background: var(--secondary);
     cursor: pointer;
     font-size: 16px;
     color: white;
 }
 
 .toggle:hover {
-    background: #e60093;
+    background: var(--secondary-hover);
 }
 
-/* botões principais */
 .btn {
-    background: #ff0fa1;
+    background: var(--btn);
     color: white;
     padding: 12px;
     width: 95%;
@@ -80,12 +102,11 @@ input::placeholder {
 }
 
 .btn:hover {
-    background: #ff008d;
+    background: var(--btn-hover);
 }
 
-/* botão secundário de cadastro etc */
 .btn-secondary {
-    background: #cc0083;
+    background: var(--secondary);
     color: white;
     padding: 12px;
     width: 95%;
@@ -97,5 +118,5 @@ input::placeholder {
 }
 
 .btn-secondary:hover {
-    background: #e60093;
+    background: var(--secondary-hover);
 }

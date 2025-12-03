@@ -1,51 +1,56 @@
-// mostrar ou esconder a senha
-function mostrarSenha(idCampo) {
-    const campo = document.getElementById(idCampo);
-    campo.type = campo.type === "password" ? "text" : "password";
-}
+document.addEventListener("DOMContentLoaded", function () {
+    const body = document.body;
 
-// ir para página de cadastro
-function irCadastro() {
-    window.location.href = "cadastro.html";
-}
+    // Tema salvo
+    const temaSalvo = localStorage.getItem("tema") || "claro";
+    if (temaSalvo === "dark") body.classList.add("dark");
 
-// voltar ao login
-function voltarLogin() {
-    window.location.href = "index.html";
-}
+    // Alternar tema
+    window.alternarTema = function () {
+        const isDark = body.classList.contains("dark");
+        if (isDark) {
+            body.classList.remove("dark");
+            localStorage.setItem("tema", "claro");
+        } else {
+            body.classList.add("dark");
+            localStorage.setItem("tema", "dark");
+        }
+    };
 
-// cadastrar usuário 
-function cadastrar() {
-    const usuario = document.getElementById("novoUsuario").value;
-    const senha = document.getElementById("novaSenha").value;
+    // Mostrar / esconder senha
+    window.mostrarSenha = function (idCampo) {
+        const campo = document.getElementById(idCampo);
+        if (!campo) return;
+        campo.type = campo.type === "password" ? "text" : "password";
+    };
 
-    if (usuario === "" || senha === "") {
-        alert("Preencha tudo!");
-        return;
-    }
+    // Navegação
+    window.irCadastro = function () { window.location.href = "cadastro.html"; };
+    window.voltarLogin = function () { window.location.href = "index.html"; };
+    window.sair = function () { window.location.href = "index.html"; };
 
-    localStorage.setItem("user", usuario);
-    localStorage.setItem("pass", senha);
+    // Cadastro
+    window.cadastrar = function () {
+        const novoUsuario = document.getElementById("novoUsuario").value.trim();
+        const novaSenha = document.getElementById("novaSenha").value.trim();
+        if (!novoUsuario || !novaSenha) { alert("Preencha todos os campos!"); return; }
+        localStorage.setItem("user", novoUsuario);
+        localStorage.setItem("pass", novaSenha);
+        alert("Conta criada com sucesso!");
+        window.location.href = "index.html";
+    };
 
-    alert("Conta criada com sucesso!");
-    window.location.href = "index.html";
-}
+    // Login
+    window.fazerLogin = function () {
+        const usuario = document.getElementById("usuarioLogin").value.trim();
+        const senha = document.getElementById("senhaLogin").value.trim();
+        const userSalvo = localStorage.getItem("user");
+        const passSalvo = localStorage.getItem("pass");
 
-// fazer login
-function fazerLogin() {
-    const usuario = document.getElementById("usuarioLogin").value;
-    const senha = document.getElementById("senhaLogin").value;
-
-    const userSalvo = localStorage.getItem("user");
-    const passSalvo = localStorage.getItem("pass");
-
-    if (usuario === userSalvo && senha === passSalvo) {
-        window.location.href = "painel.html";
-    } else {
-        alert("Usuário ou senha incorretos.");
-    }
-}
-// sair
-function sair() {
-    window.location.href = "index.html";
-}
+        if (usuario === userSalvo && senha === passSalvo) {
+            window.location.href = "painel.html";
+        } else {
+            alert("Usuário ou senha incorretos!");
+        }
+    };
+});
