@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Conta</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-    <h1>Criar Conta</h1>
+<div id="preloader">
+    <div class="loader"></div>
+</div>
 
-    <button class="tema-btn" onclick="alternarTema()">🌙 / ☀️</button>
+<button id="toggleTheme">🌙</button>
 
-    <input type="text" id="novoUsuario" placeholder="Novo Usuário">
-    <input type="password" id="novaSenha" placeholder="Nova Senha">
+<div class="container flutuar">
+    <h2>Cadastro</h2>
 
-    <button class="btn" onclick="cadastrar()">Cadastrar</button>
-    <button class="btn-secondary" onclick="voltarLogin()">Voltar</button>
+    <div class="campo">
+        <input type="text" id="cadUsuario" placeholder="Usuário">
+    </div>
+
+    <div class="campo senha-campo">
+        <input type="password" id="cadSenha" placeholder="Senha">
+        <span class="toggle-password" id="toggleSenhaCadastro">👁️</span>
+    </div>
+
+    <button id="btnCadastrar">Cadastrar</button>
+
+    <p><a href="index.html">Voltar</a></p>
 </div>
 
 <script src="script.js"></script>

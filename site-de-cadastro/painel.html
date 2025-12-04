@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-    <h1>Bem-vindo(a)!</h1>
+<div id="preloader">
+    <div class="loader"></div>
+</div>
 
-    <button class="tema-btn" onclick="alternarTema()">🌙 / ☀️</button>
+<button id="toggleTheme">🌙</button>
 
+<div class="container flutuar">
+    <h2>Bem-vindo(a)!</h2>
     <p>Login realizado com sucesso!</p>
-
-    <button class="btn-secondary" onclick="sair()">Sair</button>
 </div>
 
 <script src="script.js"></script>

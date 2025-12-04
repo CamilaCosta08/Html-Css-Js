@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-    <h1>Login</h1>
+<div id="preloader">
+    <div class="loader"></div>
+</div>
 
-    <button class="tema-btn" onclick="alternarTema()">🌙 / ☀️</button>
+<button id="toggleTheme">🌙</button>
 
-    <input type="text" id="usuarioLogin" placeholder="Usuário">
+<div class="container flutuar">
+    <h2>Login</h2>
 
-    <div class="senha-box">
-        <input type="password" id="senhaLogin" placeholder="Senha">
-        <button class="toggle" onclick="mostrarSenha('senhaLogin')">👁</button>
+    <div class="campo">
+        <input type="text" id="loginUsuario" placeholder="Usuário">
     </div>
 
-    <button class="btn" onclick="fazerLogin()">Entrar</button>
-    <button class="btn-secondary" onclick="irCadastro()">Criar Conta</button>
+    <div class="campo senha-campo">
+        <input type="password" id="loginSenha" placeholder="Senha">
+        <span class="toggle-password" id="toggleSenhaLogin">👁️</span>
+    </div>
+
+    <button id="btnLogin">Entrar</button>
+
+    <p><a href="cadastro.html">Criar conta</a></p>
 </div>
 
 <script src="script.js"></script>

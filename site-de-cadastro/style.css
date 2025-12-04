@@ -1,122 +1,154 @@
-:root {
-    --bg: #ffe6f7;
-    --card: #ffffff;
-    --border: #ff69c7;
-    --text: #660033;
-    --input-bg: #fff;
-    --input-text: #660033;
-    --btn: #ff4fbf;
-    --btn-hover: #ff2fa9;
-    --secondary: #ff8add;
-    --secondary-hover: #ff79d6;
-}
-
-.dark {
-    --bg: #2b001d;
-    --card: #4d0037;
-    --border: #ff1faf;
-    --text: #ffb3e6;
-    --input-bg: #660048;
-    --input-text: #ffe1f8;
-    --btn: #ff0fa1;
-    --btn-hover: #ff008d;
-    --secondary: #cc0083;
-    --secondary-hover: #e60093;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    transition: 0.3s ease;
+    background: #68003d;
+    color: rgb(253, 237, 247);
+    transition: 0.3s;
+}
+
+.light {
+    background: #f899d1;
+    color: #8a005a;
 }
 
 .container {
-    background: var(--card);
     width: 350px;
-    padding: 35px;
+    background: rgba(59, 1, 32, 0.404);
+    padding: 30px;
     border-radius: 20px;
+    backdrop-filter: blur(10px);
     text-align: center;
-    box-shadow: 0px 0px 25px rgba(255, 100, 200, 0.4);
-    border: 2px solid var(--border);
-    transition: 0.3s ease;
+    border: 2px solid #dd10a3;
 }
 
-h1 {
-    color: var(--text);
+.container h2 {
     margin-bottom: 20px;
-    font-size: 30px;
 }
+
+.campo {
+    margin-bottom: 15px;
+    position: relative;
+}
+  
 
 input {
-    width: 90%;
+    width: 100%;
     padding: 12px;
-    margin: 10px 0;
-    border-radius: 10px;
-    border: 2px solid var(--border);
-    background: var(--input-bg);
-    color: var(--input-text);
+    border-radius: 12px;
+    border: 2px solid #fd62c7;
+    background: rgba(255, 159, 215, 0.836);
+    color: white;
     font-size: 16px;
 }
 
-input::placeholder {
-    color: #ffb3e6;
+.light input {
+    background: rgb(255, 230, 241);
+    color: hwb(321 40% 4%);
+    border-color: #ce1599;
 }
 
-.senha-box {
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: #f118a5;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #f31fb3;
+}
+
+a {
+    color: #ee069d;
+}
+
+.olho {
+    width: 23px;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    cursor: pointer;
+    filter: drop-shadow(0 0 3px #ff78e2);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+    color: #ff5ad9;
+}
+
+#toggleTheme {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.flutuar {
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+#preloader {
+    position: fixed;
+    background: #ff52cb;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    z-index: 99;
 }
 
-.toggle {
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    background: var(--secondary);
-    cursor: pointer;
-    font-size: 16px;
-    color: white;
+.light #preloader {
+    background: hwb(327 38% 0%);
 }
 
-.toggle:hover {
-    background: var(--secondary-hover);
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #ff4bbf;
+    border-top: 6px solid transparent;
+    border-radius: 50%;
+    animation: girar 1s linear infinite;
 }
 
-.btn {
-    background: var(--btn);
-    color: white;
-    padding: 12px;
-    width: 95%;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-size: 16px;
+#toggleTheme {
+    text-shadow: 0 0 6px #ff69ff, 0 0 12px #ff69ff;
+    transition: 0.2s;
 }
 
-.btn:hover {
-    background: var(--btn-hover);
+#toggleTheme:hover {
+    transform: scale(1.15);
 }
 
-.btn-secondary {
-    background: var(--secondary);
-    color: white;
-    padding: 12px;
-    width: 95%;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-size: 16px;
-}
 
-.btn-secondary:hover {
-    background: var(--secondary-hover);
+@keyframes girar {
+    to { transform: rotate(360deg); }
 }

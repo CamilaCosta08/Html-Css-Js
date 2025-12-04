@@ -1,56 +1,57 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const body = document.body;
+window.onload = function () {
+    setTimeout(() => {
+        document.getElementById("preloader").style.display = "none";
+    }, 800);
+};
 
-    // Tema salvo
-    const temaSalvo = localStorage.getItem("tema") || "claro";
-    if (temaSalvo === "dark") body.classList.add("dark");
+const toggleTheme = document.getElementById("toggleTheme");
+if (toggleTheme) {
+    toggleTheme.addEventListener("click", () => {
+        document.body.classList.toggle("light");
+        toggleTheme.textContent =
+            document.body.classList.contains("light") ? "🌞" : "🌙";
+    });
+}
 
-    // Alternar tema
-    window.alternarTema = function () {
-        const isDark = body.classList.contains("dark");
-        if (isDark) {
-            body.classList.remove("dark");
-            localStorage.setItem("tema", "claro");
-        } else {
-            body.classList.add("dark");
-            localStorage.setItem("tema", "dark");
+
+function toggleSenha(inputId) {
+    const input = document.getElementById(inputId);
+    input.type = input.type === "password" ? "text" : "password";
+}
+
+const olhoLogin = document.getElementById("toggleSenhaLogin");
+if (olhoLogin) {
+    olhoLogin.addEventListener("click", () => toggleSenha("loginSenha"));
+}
+
+const olhoCadastro = document.getElementById("toggleSenhaCadastro");
+if (olhoCadastro) {
+    olhoCadastro.addEventListener("click", () => toggleSenha("cadSenha"));
+}
+
+const btnCadastrar = document.getElementById("btnCadastrar");
+if (btnCadastrar) {
+    btnCadastrar.addEventListener("click", () => {
+        const usuario = document.getElementById("cadUsuario").value;
+        const senha = document.getElementById("cadSenha").value;
+        if (usuario && senha) {
+            localStorage.setItem("user", usuario);
+            localStorage.setItem("pass", senha);
+            window.location.href = "index.html";
         }
-    };
+    });
+}
 
-    // Mostrar / esconder senha
-    window.mostrarSenha = function (idCampo) {
-        const campo = document.getElementById(idCampo);
-        if (!campo) return;
-        campo.type = campo.type === "password" ? "text" : "password";
-    };
-
-    // Navegação
-    window.irCadastro = function () { window.location.href = "cadastro.html"; };
-    window.voltarLogin = function () { window.location.href = "index.html"; };
-    window.sair = function () { window.location.href = "index.html"; };
-
-    // Cadastro
-    window.cadastrar = function () {
-        const novoUsuario = document.getElementById("novoUsuario").value.trim();
-        const novaSenha = document.getElementById("novaSenha").value.trim();
-        if (!novoUsuario || !novaSenha) { alert("Preencha todos os campos!"); return; }
-        localStorage.setItem("user", novoUsuario);
-        localStorage.setItem("pass", novaSenha);
-        alert("Conta criada com sucesso!");
-        window.location.href = "index.html";
-    };
-
-    // Login
-    window.fazerLogin = function () {
-        const usuario = document.getElementById("usuarioLogin").value.trim();
-        const senha = document.getElementById("senhaLogin").value.trim();
-        const userSalvo = localStorage.getItem("user");
-        const passSalvo = localStorage.getItem("pass");
-
-        if (usuario === userSalvo && senha === passSalvo) {
+const btnLogin = document.getElementById("btnLogin");
+if (btnLogin) {
+    btnLogin.addEventListener("click", () => {
+        const usuario = document.getElementById("loginUsuario").value;
+        const senha = document.getElementById("loginSenha").value;
+        if (
+            usuario === localStorage.getItem("user") &&
+            senha === localStorage.getItem("pass")
+        ) {
             window.location.href = "painel.html";
-        } else {
-            alert("Usuário ou senha incorretos!");
         }
-    };
-});
+    });
+}
