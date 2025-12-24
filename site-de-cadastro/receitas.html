@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Receitas</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="pagina-receitas">
+
+<div id="preloader">
+    <div class="loader"></div>
+</div>
+
+<button id="toggleTheme">🌙</button>
+
+<div class="container">
+    <h2>🍓 Receitas</h2>
+
+    <div class="filtros">
+        <button type="button" onclick="filtrar('todas')">Todas</button>
+        <button type="button" onclick="filtrar('facil')">Fácil</button>
+        <button type="button" onclick="filtrar('medio')">Médio</button>
+        <button type="button" onclick="filtrar('dificil')">Difícil</button>
+    </div>
+
+    <div id="listaReceitas" class="receitas-container"></div>
+
+    <button type="button" id="btnLogout">Sair</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

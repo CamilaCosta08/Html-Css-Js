@@ -30,15 +30,10 @@ body {
     border: 2px solid #dd10a3;
 }
 
-.container h2 {
-    margin-bottom: 20px;
-}
-
 .campo {
     margin-bottom: 15px;
     position: relative;
 }
-  
 
 input {
     width: 100%;
@@ -47,13 +42,6 @@ input {
     border: 2px solid #fd62c7;
     background: rgba(255, 159, 215, 0.836);
     color: white;
-    font-size: 16px;
-}
-
-.light input {
-    background: rgb(255, 230, 241);
-    color: hwb(321 40% 4%);
-    border-color: #ce1599;
 }
 
 button {
@@ -63,26 +51,13 @@ button {
     border: none;
     background: #f118a5;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
-}
-
-button:hover {
-    background: #f31fb3;
+    margin-top: 10px;
 }
 
 a {
     color: #ee069d;
-}
-
-.olho {
-    width: 23px;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    position: absolute;
-    cursor: pointer;
-    filter: drop-shadow(0 0 3px #ff78e2);
 }
 
 .toggle-password {
@@ -91,8 +66,6 @@ a {
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    font-size: 20px;
-    color: #ff5ad9;
 }
 
 #toggleTheme {
@@ -126,10 +99,6 @@ a {
     z-index: 99;
 }
 
-.light #preloader {
-    background: hwb(327 38% 0%);
-}
-
 .loader {
     width: 60px;
     height: 60px;
@@ -139,16 +108,110 @@ a {
     animation: girar 1s linear infinite;
 }
 
-#toggleTheme {
-    text-shadow: 0 0 6px #ff69ff, 0 0 12px #ff69ff;
-    transition: 0.2s;
-}
-
-#toggleTheme:hover {
-    transform: scale(1.15);
-}
-
-
 @keyframes girar {
     to { transform: rotate(360deg); }
+}
+
+.receitas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.receita {
+    background: rgba(255, 182, 213, 0.25);
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #ff6ecf;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filtros button {
+    margin: 5px 3px;
+}
+
+.pagina-receitas {
+    display: block;
+    height: auto;
+}
+
+.pagina-receitas .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    text-align: left;
+}
+
+.pagina-receitas .receitas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.detalhes {
+    display: none;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.receita.aberta .detalhes {
+    display: block;
+}
+
+.receita {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.receita > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.receita button {
+    width: auto;
+    padding: 8px 12px;
+    margin: 0;
+}
+
+.detalhes {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 10px;
+    border-radius: 10px;
+    line-height: 1.5;
+}
+
+.detalhes ul {
+    padding-left: 18px;
+    margin: 6px 0;
+}
+
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0 30px;
+    flex-wrap: wrap;
+}
+
+.filtros button {
+    background: #ff2fa0;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    min-width: 100px;
+}
+
+.filtros button:hover {
+    background: #ff66b8;
+    transform: scale(1.05);
 }
